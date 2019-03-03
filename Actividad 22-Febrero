@@ -1,0 +1,54 @@
+
+%%Funcion1.m
+function dydt = Funcion1(t,y)
+dydt=t/y
+end 
+
+%%callFuncion1.m
+function [t,y]= callFuncion1()
+stpan=[0 10];
+y0=1;
+[t,y]=ode45(@Funcion1,stpan,y0);
+plot(t,y)
+end
+
+%%Funcion2.m
+function dydt = Funcion2(t,y)
+a=24;
+b=35;
+dydt= a*y - b*y^2;
+end
+
+%%callFuncion2.m
+function [t,y]= callFuncion2()
+stpan=[0 10];
+y0=10;
+[t,y]=ode45(@Funcion2,stpan,y0);
+plot(t,y)
+end
+
+%%Funcion3.m
+function dydt = Funcion3(t,y)
+dydt= exp(2*y)*sin(t);
+end
+
+%%callFuncion3.m
+function [t,y]= callFuncion3()
+stpan=[0 10];
+y0=0;
+[t,y]=ode45(@Funcion3,stpan,y0);
+plot(t,y)
+end
+
+%%Funcion4.m
+function dydx = Funcion4(x,y)
+dydx= exp(x)/(2*y);
+end
+
+%%callFuncion4
+function [x,y]= callFuncion4()
+stpan=[0 10];
+y0=1;
+[x,y]=ode45(@Funcion4,stpan,y0);
+plot(x,y)
+end
